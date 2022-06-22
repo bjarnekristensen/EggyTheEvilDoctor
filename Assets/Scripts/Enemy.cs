@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    // Enemy
     public float minSpeed = 4f;
     public float maxSpeed = 8f;
     public float angleVariation = 15f;
     float speed;
     Player playerScript;
     Transform headTransform;
+    BoxCollider2D boxCollider2D;
+    SpriteRenderer[] spriteRenderers;
+
+    // Enemy abilities
     public int damage = 1;
     public bool isBouncy = true;
+    public float maxLiveTime = 10f;
+    float liveTimer;
+
+    // Hit flash
     bool isFading = false;
     [Tooltip("Time for the object to fade out and destroy after hitting the ground.")]
     public float fadeTime = 0.5f;
     float fadeTimer = 0f;
-    public float maxLiveTime = 10f;
-    float liveTimer;
     public GameObject groundSplash;
     public GameObject playerHitSplash;
-    BoxCollider2D boxCollider2D;
-    SpriteRenderer[] spriteRenderers;
 
     // Start is called before the first frame update
     void Start()
